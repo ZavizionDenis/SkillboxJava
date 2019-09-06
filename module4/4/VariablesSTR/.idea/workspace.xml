@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fea2bb54-07fc-4beb-8537-9a0f6625572e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5714589c-8814-4d94-a3a0-a8ab748f0f29" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,28 +15,19 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Container</find>
-      <find>конт</find>
-      <find>груз</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>Case</replace>
-    </replaceStrings>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
-  </component>
-  <component name="ProjectId" id="1QPXj3LhW3xPYFJCfXnHGZMSFKW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1QSFSCsa5iAshNfrmt933jpGBgz" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548001192861" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548263749050" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -55,7 +44,7 @@
   <component name="RunManager">
     <configuration name="Loader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Loader" />
-      <module name="Cargo" />
+      <module name="VariablesSTR" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -71,36 +60,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fea2bb54-07fc-4beb-8537-9a0f6625572e" name="Default Changelist" comment="" />
-      <created>1547918237677</created>
+      <changelist id="5714589c-8814-4d94-a3a0-a8ab748f0f29" name="Default Changelist" comment="" />
+      <created>1548001952175</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1547918237677</updated>
+      <updated>1548001952175</updated>
     </task>
-    <task id="LOCAL-00001" summary="minimized scope variables, add const, add method for Box">
-      <created>1567755542341</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1567755542341</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="minimized scope variables, add const, add method for Box" />
-    <option name="LAST_COMMIT_MESSAGE" value="minimized scope variables, add const, add method for Box" />
   </component>
   <component name="masterDetails">
     <states>
@@ -153,7 +119,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Cargo</last-edited>
+          <last-edited>VariablesSTR</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
