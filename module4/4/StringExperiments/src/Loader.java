@@ -10,7 +10,7 @@ public class Loader
         String subText = text.substring(text.indexOf("Вася"), text.indexOf("руб")).trim();
         int indexCh = subText.length()-1;
         while (indexCh >= 0) {
-            if (((int) subText.charAt(indexCh) >= 48 && ((int) subText.charAt(indexCh) <= 57))) {
+            if (((int) subText.charAt(indexCh) >= (int) '0' && ((int) subText.charAt(indexCh) <= (int) '9'))) {
                 indexCh--;
             }
             else {
@@ -21,7 +21,7 @@ public class Loader
         subText = text.substring(text.indexOf("Маша"), text.lastIndexOf("руб")).trim();
         indexCh = subText.length()-1;
         while (indexCh >= 0) {
-            if (((int) subText.charAt(indexCh) >= 48 && ((int) subText.charAt(indexCh) <= 57))) {
+            if (((int) subText.charAt(indexCh) >= (int) '0' && ((int) subText.charAt(indexCh) <= (int) '9'))) {
                 indexCh--;
             }
             else {
