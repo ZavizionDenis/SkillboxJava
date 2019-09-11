@@ -5,6 +5,8 @@ import java.util.regex.Pattern;
 
 public class Loader
 {
+    private static ArrayList <String> todoList = new ArrayList<>();
+
     private static final String HELP = "Подсказка:" +
             "\n========================================\n" +
             "LIST - вывести список дел\n" +
@@ -16,9 +18,8 @@ public class Loader
             "\n========================================\n";
 
     public static void main(String[] args) {
-       ArrayList <String> todoList = new ArrayList<>();
 
-        Pattern patTodoListElement = Pattern.compile("(?<comm>DELETE|LIST|ADD|EDIT)(?<index>\\s\\d+)?\\s?(?<todo>[a-zA-Z].*)?");
+        Pattern patTodoListElement = Pattern.compile("(?<comm>DELETE|LIST|ADD|EDIT)\\s*(?<index>\\d+)?\\s?(?<todo>[a-zA-Z].*)?");
 
        for (; ;) {
            System.out.println(HELP + "\nВведите команду и текст:");
@@ -31,69 +32,74 @@ public class Loader
            }
 
            else if (command.startsWith("LIST")) {
-                printTodoList(todoList);
+                printTodoList();
            }
 
            else if (command.startsWith("ADD")) {
                Integer todoListElementIndex = null;
-               String todoElement = null;
+               String todoElement = "";
                if (matcher.find()) {
-                   try {
-                       todoListElementIndex = Integer.parseInt(matcher.group("index").trim());
-                   } catch (NumberFormatException | NullPointerException e) {
-                       todoListElementIndex = null;
-                   }
-                   todoElement = matcher.group("todo").trim();
+                   todoListElementIndex = getIndex(matcher);
+                   todoElement = getMessage(matcher);
                }
-               addTodoListElement(todoList, todoListElementIndex, todoElement);
+
+               addTodoListElement(todoListElementIndex, todoElement);
            }
 
            else if (command.startsWith("EDIT")) {
                Integer todoListElementIndex = null;
-               String todoElement = null;
+               String todoElement = "";
                if (matcher.find()) {
-                   try {
-                       todoListElementIndex = Integer.parseInt(matcher.group("index").trim());
-                   } catch (NumberFormatException e) {
-                       todoListElementIndex = null;
-                   }
-                   todoElement = matcher.group("todo").trim();
+                   todoListElementIndex = getIndex(matcher);
+                   todoElement = getMessage(matcher);
                }
-               editTodoListElement(todoList,todoListElementIndex, todoElement);
+               editTodoListElement(todoListElementIndex, todoElement);
            }
 
            else if (command.startsWith("DELETE")) {
                Integer todoListElementIndex = null;
                if (matcher.find()) {
-                   try {
-                       todoListElementIndex = Integer.parseInt(matcher.group("index").trim());
-                   } catch (NumberFormatException | NullPointerException e) {
-                       todoListElementIndex = null;
-                   }
+                   todoListElementIndex = getIndex(matcher);
                }
-               deleteElementTodoList(todoList, todoListElementIndex);
+               deleteElementTodoList(todoListElementIndex);
            }
 
            else {
                System.out.println("Команда не распознана.");
            }
        }
-
     }
 
-    private static void printTodoList (ArrayList <String> todoList) {
+//=====================================================================================================================
+    private static Integer getIndex (Matcher matcher) {
+        Integer todoListElementIndex = null;
+        if (matcher.group("index") != null) {
+            todoListElementIndex = Integer.parseInt(matcher.group("index"));
+        }
+        return todoListElementIndex;
+    }
+
+    private static String getMessage (Matcher matcher) {
+        String todoElement = "";
+        if (matcher.group("todo") != null) {
+            todoElement = matcher.group("todo").trim();
+        }
+        return todoElement;
+    }
+
+    private static void printTodoList () {
         if (todoList.size() == 0) {
             System.out.println("Список дел пуст.");
         }
         else {
-            for (int todoListElementIndex = 0; todoListElementIndex < todoList.size(); todoListElementIndex++) {
-                System.out.println(todoListElementIndex + " " + todoList.get(todoListElementIndex));
+            for (int index = 0; index < todoList.size(); index++) {
+                System.out.println(index + " " + todoList.get(index));
             }
         }
 
     }
 
-    private static void deleteElementTodoList (ArrayList <String> todoList , int todoListElementIndex) {
+    private static void deleteElementTodoList (int todoListElementIndex) {
         if (todoListElementIndex < 0 || todoListElementIndex > todoList.size()-1) {
             System.out.println("указанный номер дела отсутсвует в списке.");
         }
@@ -102,12 +108,12 @@ public class Loader
         }
     }
 
-    private static void addTodoListElement (ArrayList <String> todoList , Integer todoListElementIndex, String todoElement) {
+    private static void addTodoListElement (Integer todoListElementIndex, String todoElement) {
         if (todoListElementIndex == null || (todoListElementIndex < 0 || todoListElementIndex > todoList.size()-1)) {
             System.out.println("Не корректный номер дела, запись будет добавлена в конец списка.");
             todoListElementIndex = todoList.size();
         }
-        if (!todoElement.isEmpty()) {
+        if (!todoElement.equals("")) {
             todoList.add(todoListElementIndex, todoElement);
         }
         else {
@@ -115,7 +121,7 @@ public class Loader
         }
     }
 
-    private static void editTodoListElement (ArrayList <String> todoList , Integer todoListElementIndex, String todoElement) {
+    private static void editTodoListElement (Integer todoListElementIndex, String todoElement) {
         if (todoListElementIndex == null) {
             System.out.println("Не указан номер дела, изменение не возможно.");
         }

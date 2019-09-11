@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c5eb696-6161-4960-9b95-8a3e5615eff0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module4/4/StringExperiments/.idea/copyright/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/4/StringExperiments/.idea/copyright/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module4/4/StringExperiments/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/4/StringExperiments/src/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module4/5/StringExperiments2/.idea/copyright/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/5/StringExperiments2/.idea/copyright/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module4/5/StringExperiments2/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/5/StringExperiments2/src/Loader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Arrays/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Arrays/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +64,14 @@
       <option name="presentableId" value="Default" />
       <updated>1548689914667</updated>
     </task>
+    <task id="LOCAL-00001" summary="added Revers array W/o create new array.">
+      <created>1568199335180</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1568199335180</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -83,5 +84,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added Revers array W/o create new array." />
+    <option name="LAST_COMMIT_MESSAGE" value="added Revers array W/o create new array." />
   </component>
 </project>
