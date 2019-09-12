@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9538d6be-2136-434f-a0c2-beeb778d9116" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d4d6c015-95f6-4c26-9ecd-febb0c9ffbd3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,14 +16,8 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
-  </component>
-  <component name="ProjectId" id="1QbPmHSyrRT0eYRmpo8hb72GXb9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1Qj2hFnAsECrifcRB0sFvRMe06r" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">
@@ -43,7 +35,7 @@
   <component name="RunManager">
     <configuration name="Loader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Loader" />
-      <module name="TodoList" />
+      <module name="Emails" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -59,37 +51,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9538d6be-2136-434f-a0c2-beeb778d9116" name="Default Changelist" comment="" />
-      <created>1568036479474</created>
+      <changelist id="d4d6c015-95f6-4c26-9ecd-febb0c9ffbd3" name="Default Changelist" comment="" />
+      <created>1568269801719</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1568036479474</updated>
+      <updated>1568269801719</updated>
     </task>
-    <task id="LOCAL-00001" summary="exclude exeptions">
-      <created>1568228014269</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1568228014269</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="exclude exeptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="exclude exeptions" />
   </component>
 </project>
