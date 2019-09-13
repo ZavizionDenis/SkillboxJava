@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16ede16d-d178-4bf1-938a-f866f3528112" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="fff19722-54c0-4e93-834e-254c14cf62bb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,16 +15,18 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>01</find>
+    </findStrings>
   </component>
-  <component name="ProjectId" id="1QjgSAG8KOloUbdTJTOJqvXvZo8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1QkH0OmHKUy2AgcIX9TeDY4uEB6" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550084164040" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549629701052" />
+    <property name="last.edited.regexp" value="Sample Text" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="Console" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -44,7 +43,7 @@
   <component name="RunManager">
     <configuration name="Loader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Loader" />
-      <module name="PhoneBook" />
+      <module name="GIBDD" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -60,35 +59,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="16ede16d-d178-4bf1-938a-f866f3528112" name="Default Changelist" comment="" />
-      <created>1549969945283</created>
+      <changelist id="fff19722-54c0-4e93-834e-254c14cf62bb" name="Default Changelist" comment="" />
+      <created>1549387136231</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1549969945283</updated>
+      <updated>1549387136231</updated>
     </task>
-    <task id="LOCAL-00001" summary="clearing import class">
-      <created>1568355763102</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1568355763102</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="clearing import class" />
-    <option name="LAST_COMMIT_MESSAGE" value="clearing import class" />
   </component>
 </project>
