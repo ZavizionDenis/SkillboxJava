@@ -40,36 +40,36 @@ public class Loader
     }
 //=====================================================================================================================
     private static void incrementalSearch (String number) {
-        long  startTime = System.currentTimeMillis();
+        long  startTime = System.nanoTime();
         Boolean isFind = carNumberArrayList.GetContains(number);
         resultSearch(isFind, startTime);
     }
 
     private static void binarySearch (String number) {
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         Boolean isFind = carNumberArrayList.GetBinarySearch(number);
         resultSearch(isFind, startTime);
     }
 
     private static void hashSetSearch (String number) {
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         Boolean isFind = carNumberArrayList.GetHashSetSearch(number);
         resultSearch(isFind, startTime);
     }
 
     private static void treeSetSearch (String number) {
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         Boolean isFind = carNumberArrayList.GetTreeSetSearch(number);
         resultSearch(isFind, startTime);
     }
 
     private static void resultSearch (Boolean isFind, long startTime) {
         if (isFind) {
-            long duration = (System.currentTimeMillis() - startTime);
+            long duration = (System.nanoTime() - startTime);
             System.out.println("true" + " (" + duration + " ms)");
         }
         else {
-            long duration = (System.currentTimeMillis() - startTime);
+            long duration = (System.nanoTime() - startTime);
             System.out.println("false" + " (" + duration + " ms)");
         }
     }
