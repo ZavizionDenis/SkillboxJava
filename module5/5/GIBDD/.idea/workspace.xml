@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fff19722-54c0-4e93-834e-254c14cf62bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GIBDD/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GIBDD/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GIBDD/NiceNumArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GIBDD/NiceNumArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
-    </list>
+    <list default="true" id="fff19722-54c0-4e93-834e-254c14cf62bb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +70,14 @@
       <option name="presentableId" value="Default" />
       <updated>1549387136231</updated>
     </task>
+    <task id="LOCAL-00001" summary="change Millisec to nanosec">
+      <created>1568666108188</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1568666108188</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -88,5 +90,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="change Millisec to nanosec" />
+    <option name="LAST_COMMIT_MESSAGE" value="change Millisec to nanosec" />
   </component>
 </project>
