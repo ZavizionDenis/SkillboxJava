@@ -15,13 +15,8 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
-  </component>
   <component name="ProjectId" id="1QorqVBWNVSFs2j6GLlmAwrGxN6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -61,29 +56,6 @@
       <option name="presentableId" value="Default" />
       <updated>1568447980030</updated>
     </task>
-    <task id="LOCAL-00001" summary="del enum class">
-      <created>1568711303874</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1568711303875</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="del enum class" />
-    <option name="LAST_COMMIT_MESSAGE" value="del enum class" />
   </component>
 </project>
