@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Loader
 {
     private static final long TIME_DELAY = 2000;
@@ -5,7 +7,8 @@ public class Loader
     private static final String [] TYPE_OPERATION = {"GET_BALANCE", "FILL_BALANCE", "WITHDRAW_BALANCE"};
 
     public static void main(String[] args) {
-        
+
+        TimeStamp.getTimeStamp();
         BankAccount [] accounts = new BankAccount [3];
         accounts [0] = new BankAccount(getStartBalance(), "Расчетный счет");
         accounts [1] = new DepositAccount(getStartBalance(), "Депозитарный счет");
@@ -23,8 +26,7 @@ public class Loader
             }
 
             for (BankAccount bankAccount : accounts) {
-
-                int operationIndex = (int) Math.round(0 + 2 * Math.random());
+                int operationIndex = new Random().nextInt(TYPE_OPERATION.length);
                 if (TYPE_OPERATION[operationIndex].equals("GET_BALANCE")) {
                     System.out.println("Запрос баланса:\n========================\n");
                     System.out.println(bankAccount.getTypeAccount() + bankAccount.getBalance());
