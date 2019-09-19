@@ -24,7 +24,12 @@ public class BankAccount
     }
 
     public void withdrawBalance (double amount) {
-        this.balance -=amount;
-        System.out.printf(Locale.ENGLISH,getTypeAccount() + " Баланс уменьшен на: %.2f%s%n", amount, getBalance());
+        if (amount <= balance) {
+            this.balance -= amount;
+            System.out.printf(Locale.ENGLISH, getTypeAccount() + " Баланс уменьшен на: %.2f%s%n", amount, getBalance());
+        }
+        else {
+            System.out.println("Операция не возможна, запрашиваемая сумма превышает остаток на балансе.");
+        }
     }
 }
