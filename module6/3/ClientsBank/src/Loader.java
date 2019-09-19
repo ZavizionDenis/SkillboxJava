@@ -11,7 +11,7 @@ public class Loader
     private static final long TIME_DELAY = 1000;
     private static final int ACCOUNT_COUNT = 1000;
     private static Clients [] accounts = new Clients[ACCOUNT_COUNT];
-    private static final String [] OPERATIONS = {"GET_BALANCE", "FILL_BALANCE", "WITHDRAW_BALANCE", "TRANSFER_FUNDS"};
+    private static final String [] OPERATIONS = {"GET_BALANCE", "FILL_BALANCE", "WITHDRAW_BALANCE"};
 
     public static void main(String[] args) {
         generateAccountsPool();
@@ -41,19 +41,6 @@ public class Loader
             else if (OPERATIONS[nextOperation].equals("WITHDRAW_BALANCE")) {
                 System.out.printf("\nОПЕРАЦИЯ СНЯТИЯ СРЕДСТВ:\n====================\nТип клиента: %s%nНомер клиента: %d%n", nextClient.getType(), nextClient.getClientNumber());
                 nextClient.withdrawalBalance(generateAmount());
-            }
-
-            else if (OPERATIONS[nextOperation].equals("TRANSFER_FUNDS")) {
-                Clients secondNextClient = accounts [new Random().nextInt(accounts.length)];
-                System.out.printf("\nОПЕРАЦИЯ ПЕРЕВОДА СРЕДСТВ:\n" +
-                                  "====================\n" +
-                                  "Тип клиента отправителя: %s%n" +
-                                  "Номер клиента отправителя: %d%n" +
-                                  "Тип клиента получателя: %s%n" +
-                                  "Номер клиента получателя: %d%n",
-                                  nextClient.getType(), nextClient.getClientNumber(), secondNextClient.getType(), secondNextClient.getClientNumber());
-
-                nextClient.transferFunds(secondNextClient, generateAmount());
             }
         }
     }

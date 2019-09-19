@@ -2,19 +2,17 @@ package TypeBankClients;
 
 abstract public class Clients {
 
-    protected final int clientAccountNumber;
+    protected int clientAccountNumber;
     protected double clientAccountBalance;
-
-    public Clients(int clientAccountNumber, double clientAccountBalance) {
-        this.clientAccountNumber = clientAccountNumber;
-        this.clientAccountBalance = clientAccountBalance;
-    }
+    protected String clientAccountType;
 
     public double getBalance() {
         return clientAccountBalance;
     }
 
-    abstract public String getType();
+    public String getType() {
+        return clientAccountType;
+    }
 
     public int getClientNumber() {
         return clientAccountNumber;
@@ -22,11 +20,5 @@ abstract public class Clients {
 
     abstract public void fillBalance(double amount);
 
-    abstract public boolean withdrawalBalance(double amount);
-
-    public void transferFunds (Clients secondAccount, double amount) {
-        if (withdrawalBalance(amount)) {
-            secondAccount.fillBalance(amount);
-        }
-    }
+    abstract public void withdrawalBalance(double amount);
 }
