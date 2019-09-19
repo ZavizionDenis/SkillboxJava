@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5f94eb1-6182-4397-b6bb-1a5f0b97d53e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClientsBank/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientsBank/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClientsBank/TypeBankClients/Clients.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientsBank/TypeBankClients/Clients.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClientsBank/TypeBankClients/Individual.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientsBank/TypeBankClients/Individual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClientsBank/TypeBankClients/Juridical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientsBank/TypeBankClients/Juridical.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClientsBank/TypeBankClients/Physical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientsBank/TypeBankClients/Physical.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TypeBankClients/Clients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TypeBankClients/Clients.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TypeBankClients/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TypeBankClients/Individual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TypeBankClients/Juridical.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TypeBankClients/Juridical.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TypeBankClients/Physical.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TypeBankClients/Physical.java" afterDir="false" />
-    </list>
+    <list default="true" id="a5f94eb1-6182-4397-b6bb-1a5f0b97d53e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
