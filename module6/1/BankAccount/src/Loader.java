@@ -35,7 +35,15 @@ public class Loader
                     bankAccount.fillBalance(generateAmount());
                 } else if (TYPE_OPERATION[operationIndex].equals("WITHDRAW_BALANCE")) {
                     System.out.println("Вывод средств со счета:\n========================\n");
-                    bankAccount.withdrawBalance(generateAmount());
+                    if (!bankAccount.getTypeAccount().equals("Депозитарный счет")) {
+                        bankAccount.withdrawBalance(generateAmount());
+                    }
+                    else {
+                        int pastDays = new Random().nextInt(60);
+                        System.out.println("Количество прошедших дней: " + pastDays);
+                        TimeStamp.addDays(pastDays);
+                        bankAccount.withdrawBalance(generateAmount());
+                    }
                 }
             }
         }

@@ -3,14 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="355d91d2-c5c9-4002-b6ff-9cb1942fadd3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BankAccount/BankAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BankAccount/BankAccount.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BankAccount/DepositAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BankAccount/DepositAccount.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BankAccount/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BankAccount/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BankAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BankAccount/TimeStamp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BankAccount/TimeStamp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DepositAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DepositAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3/ClientsBank/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../3/ClientsBank/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3/ClientsBank/src/TypeBankClients/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../3/ClientsBank/src/TypeBankClients/Individual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimeStamp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeStamp.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

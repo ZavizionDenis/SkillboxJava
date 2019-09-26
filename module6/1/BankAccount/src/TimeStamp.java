@@ -13,4 +13,8 @@ public class TimeStamp {
         }
         return timeStamp;
     }
+
+    public static void addDays(int days) {
+        timeStamp = timeStamp.plusDays(days);
+    }
 }

@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.util.Random;
 
 public class DepositAccount extends BankAccount{
 
@@ -19,18 +18,15 @@ public class DepositAccount extends BankAccount{
 
     @Override
     public void withdrawBalance(double amount) {
-        int pastDays = new Random().nextInt(60);
-        System.out.println("Количество прошедших дней: " + pastDays);
-        LocalDate thisDate = TimeStamp.getTimeStamp().plusDays(pastDays);
-        if (thisDate.isAfter(lastFillDate)) {
+        if (TimeStamp.getTimeStamp().isAfter(lastFillDate)) {
             super.withdrawBalance(amount);
         }
         else {
-            System.out.println("Снятие денег не возможно, т.к. не прошел месяц с последнего пополнения\n========================\n");
+            System.out.println(getTypeAccount() + " Снятие денег не возможно, т.к. не прошел месяц с последнего пополнения\n========================\n");
         }
     }
 
     private void setLastFillDate () {
-        lastFillDate = TimeStamp.getTimeStamp().now().plusDays(MIN_DAYS_COUNT_TO_WITHDRAW);
+        lastFillDate = TimeStamp.getTimeStamp().plusDays(MIN_DAYS_COUNT_TO_WITHDRAW);
     }
 }
