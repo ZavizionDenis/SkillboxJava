@@ -2,7 +2,7 @@ package EmployeeType;
 
 public class TopManager extends EmployeeType
 {
-    private static boolean isOverIncome;
+    private boolean isOverIncome;
 
     public TopManager(int baseSalary) {
         super(baseSalary);
@@ -10,8 +10,7 @@ public class TopManager extends EmployeeType
 
     @Override
     public int getMonthSalary() {
-        this.monthSalary = isOverIncome ? baseSalary * 2 : baseSalary;
-        return super.getMonthSalary();
+        return this.monthSalary = isOverIncome ? baseSalary * 2 : baseSalary;
     }
 
     @Override
@@ -19,7 +18,8 @@ public class TopManager extends EmployeeType
         return "Топ Менеджер";
     }
 
-    public static void setIsOverIncome(boolean isOverIncome) {
-        TopManager.isOverIncome = isOverIncome;
+
+    public void setIsOverIncome(boolean isOverIncome) {
+        this.isOverIncome = isOverIncome;
     }
 }

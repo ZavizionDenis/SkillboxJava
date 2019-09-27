@@ -1,6 +1,6 @@
 package EmployeeType;
 
-abstract public class EmployeeType implements Employee, Comparable <EmployeeType>
+abstract public class EmployeeType implements Comparable <EmployeeType>
 {
     protected int baseSalary;
     protected int monthSalary;
@@ -9,10 +9,7 @@ abstract public class EmployeeType implements Employee, Comparable <EmployeeType
         this.baseSalary = baseSalary;
     }
 
-    @Override
-    public int getMonthSalary() {
-        return monthSalary;
-    }
+    abstract public int getMonthSalary();
 
     abstract public String getTypeEmployee ();
 

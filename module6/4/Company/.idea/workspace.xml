@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3410231f-0a28-4afc-abaa-d66123af2a7c" name="Default Changelist" comment="" />
+    <list default="true" id="3410231f-0a28-4afc-abaa-d66123af2a7c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Company/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/Company.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Company/EmployeeType/EmployeeType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/EmployeeType/EmployeeType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Company/EmployeeType/Operator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/EmployeeType/Operator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Company/EmployeeType/SalesManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/EmployeeType/SalesManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Company/EmployeeType/TopManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/EmployeeType/TopManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Company/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/Loader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmployeeType/EmployeeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeType/EmployeeType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmployeeType/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeType/Operator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmployeeType/SalesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeType/SalesManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmployeeType/TopManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeType/TopManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module7/1/LambdaExpressions/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module7/1/LambdaExpressions/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,14 +31,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
   <component name="ProjectId" id="1REBiKU0L9OpUgK98HlpUEDTj1T" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
@@ -60,5 +85,18 @@
       <updated>1569222500479</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

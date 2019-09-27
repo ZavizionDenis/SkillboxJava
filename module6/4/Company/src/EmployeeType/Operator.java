@@ -8,8 +8,7 @@ public class Operator extends EmployeeType
 
     @Override
     public int getMonthSalary() {
-        this.monthSalary = baseSalary;
-        return super.getMonthSalary();
+        return this.monthSalary = baseSalary;
     }
 
     @Override
