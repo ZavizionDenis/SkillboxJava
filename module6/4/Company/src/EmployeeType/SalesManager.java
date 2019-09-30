@@ -1,5 +1,7 @@
 package EmployeeType;
 
+import Company.Company;
+
 public class SalesManager extends EmployeeType
 {
     private static final double BONUS_RATE = 0.05;
@@ -7,11 +9,11 @@ public class SalesManager extends EmployeeType
 
     public SalesManager(int baseSalary) {
         super(baseSalary);
-        salesManagerDealSum = (int) (150_000 + 200_000 * Math.random());
+        salesManagerDealSum = (int) (100_000 + 200_000 * Math.random());
     }
 
     @Override
-    public int getMonthSalary() {
+    public int getMonthSalary(Company company) {
         return this.monthSalary = (int) (baseSalary + salesManagerDealSum * BONUS_RATE);
     }
 

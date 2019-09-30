@@ -1,5 +1,7 @@
 package EmployeeType;
 
+import Company.Company;
+
 public class Operator extends EmployeeType
 {
     public Operator(int baseSalary) {
@@ -7,7 +9,7 @@ public class Operator extends EmployeeType
     }
 
     @Override
-    public int getMonthSalary() {
+    public int getMonthSalary(Company company) {
         return this.monthSalary = baseSalary;
     }
 

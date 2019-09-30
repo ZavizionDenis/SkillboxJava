@@ -1,3 +1,5 @@
+package Company;
+
 import EmployeeType.EmployeeType;
 import EmployeeType.Operator;
 import EmployeeType.SalesManager;
@@ -6,6 +8,7 @@ import EmployeeType.TopManager;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+import Help.Help;
 
 public class Company {
 
@@ -65,7 +68,10 @@ public class Company {
     }
 //====================================================================================================================
     public ArrayList <EmployeeType> getTopSalaryStaff(int count) {
-
+        if (count > getEmployeesList().size()) {
+            System.out.println("Запрашиваемое кол-во для вывода превышает общее кол-во сотрудников. Будут выведены все сотрудники.");
+            count = getEmployeesList().size();
+        }
         Collections.sort(getEmployeesList(), Collections.reverseOrder());
         ArrayList <EmployeeType> monthTopSalaryList = new ArrayList<>();
         for (int i = 0; i < count; i++) {
@@ -75,6 +81,10 @@ public class Company {
     }
 //====================================================================================================================
     public ArrayList <EmployeeType> getLowestSalaryStaff(int count) {
+        if (count > getEmployeesList().size()) {
+            System.out.println("Запрашиваемое кол-во для вывода превышает общее кол-во сотрудников. Будут выведены все сотрудники.");
+            count = getEmployeesList().size();
+        }
         Collections.sort(getEmployeesList());
         ArrayList <EmployeeType> monthLowestSalaryList = new ArrayList<>();
         for (int i = 0; i < count; i++) {
@@ -112,5 +122,9 @@ public class Company {
         employeesList.remove(employee);
     }
 
-//====================================================================================================================
+    public boolean isOverIncome() {
+        return isOverIncome;
+    }
+
+    //====================================================================================================================
 }

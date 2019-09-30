@@ -1,5 +1,7 @@
 package EmployeeType;
 
+import Company.Company;
+
 abstract public class EmployeeType implements Comparable <EmployeeType>
 {
     protected int baseSalary;
@@ -9,16 +11,16 @@ abstract public class EmployeeType implements Comparable <EmployeeType>
         this.baseSalary = baseSalary;
     }
 
-    abstract public int getMonthSalary();
+    abstract public int getMonthSalary(Company company);
 
     abstract public String getTypeEmployee ();
 
     @Override
     public int compareTo(EmployeeType employee) {
-        if (getMonthSalary() > employee.getMonthSalary()) {
+        if (monthSalary > employee.monthSalary) {
             return 1;
         }
-        if (getMonthSalary() < employee.getMonthSalary()) {
+        if (monthSalary < employee.monthSalary) {
             return -1;
         }
         return 0;

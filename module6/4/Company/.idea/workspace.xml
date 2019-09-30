@@ -2,25 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3410231f-0a28-4afc-abaa-d66123af2a7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Company/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/Company.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Company/Company.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Company/EmployeeType/EmployeeType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/EmployeeType/EmployeeType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Company/EmployeeType/Operator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/EmployeeType/Operator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Company/EmployeeType/SalesManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/EmployeeType/SalesManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Company/EmployeeType/TopManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/EmployeeType/TopManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Company/Help.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Company/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Company/Company.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmployeeType/EmployeeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeType/EmployeeType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmployeeType/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeType/Operator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmployeeType/SalesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeType/SalesManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmployeeType/TopManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeType/TopManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Help/Help.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module7/1/LambdaExpressions/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module7/1/LambdaExpressions/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -46,6 +42,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="copyright" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="EmployeeType" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
