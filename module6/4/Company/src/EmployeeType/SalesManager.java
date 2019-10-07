@@ -14,7 +14,7 @@ public class SalesManager extends EmployeeType
 
     @Override
     public int getMonthSalary(Company company) {
-        return this.monthSalary = (int) (baseSalary + salesManagerDealSum * BONUS_RATE);
+        return (int) (baseSalary + salesManagerDealSum * BONUS_RATE);
     }
 
     public int getSalesManagerDealSum() {

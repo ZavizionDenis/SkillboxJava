@@ -10,7 +10,7 @@ public class Operator extends EmployeeType
 
     @Override
     public int getMonthSalary(Company company) {
-        return this.monthSalary = baseSalary;
+        return baseSalary;
     }
 
     @Override
