@@ -5,10 +5,8 @@ import EmployeeType.Operator;
 import EmployeeType.SalesManager;
 import EmployeeType.TopManager;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
+
 import Help.Help;
 
 public class Company {
@@ -53,60 +51,25 @@ public class Company {
                 hireEmployee(new Operator(operatorBaseSalary));
             }
         }
-        if (isOverIncome()) {
-            System.out.printf("Доход компании: %,d превысил границу сверх дохода: %,d, выдаем топ менеджерам премию на яхты/машины/прочее\n\n", getOverIncome(), OVER_INCOME);
+        if (getIncome() >= OVER_INCOME) {
+            System.out.printf("Доход компании: %,d превысил границу сверх дохода: %,d, выдаем топ менеджерам премию на яхты/машины/прочее\n\n", getIncome(), OVER_INCOME);
         }
         else {
-            System.out.printf("Доход компании: %,d не достигли границы сверх дохода: %,d, топ менеджерам придется питаться макарошками, они рыдают и раздают всем лещей\n\n", getOverIncome(), OVER_INCOME);
+            System.out.printf("Доход компании: %,d не достигли границы сверх дохода: %,d, топ менеджерам придется питаться макарошками, они рыдают и раздают всем лещей\n\n", getIncome(), OVER_INCOME);
         }
     }
 //====================================================================================================================
     public ArrayList <EmployeeType> getTopSalaryStaff(int count) {
-        if (count > getEmployeesList().size()) {
-            System.out.println("Запрашиваемое кол-во для вывода превышает общее кол-во сотрудников. Будут выведены все сотрудники.");
-            count = getEmployeesList().size();
-        }
-        Company company = this;
-        Collections.sort(getEmployeesList(), (Comparator<EmployeeType>) (o1, o2) -> {
-
-            if(o1.getMonthSalary(company) > o2.getMonthSalary(company)) {
-                return -1;
-            }
-
-            if (o1.getMonthSalary(company) < o2.getMonthSalary(company)) {
-                return 1;
-            }
-            return 0;
-        });
-        ArrayList <EmployeeType> monthTopSalaryList = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            monthTopSalaryList.add(getEmployeesList().get(i));
-        }
-        return monthTopSalaryList;
+        count = checkCountRequest(count);
+        getSortEmployeesList();
+        Collections.reverse(employeesList);
+        return new ArrayList<>(employeesList.subList(0, count));
     }
 //====================================================================================================================
     public ArrayList <EmployeeType> getLowestSalaryStaff(int count) {
-        if (count > getEmployeesList().size()) {
-            System.out.println("Запрашиваемое кол-во для вывода превышает общее кол-во сотрудников. Будут выведены все сотрудники.");
-            count = getEmployeesList().size();
-        }
-        Company company = this;
-        Collections.sort(getEmployeesList(), (Comparator<EmployeeType>) (o1, o2) -> {
-
-            if(o1.getMonthSalary(company) > o2.getMonthSalary(company)) {
-                return 1;
-            }
-
-            if (o1.getMonthSalary(company) < o2.getMonthSalary(company)) {
-                return -1;
-            }
-            return 0;
-        });
-        ArrayList <EmployeeType> monthLowestSalaryList = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            monthLowestSalaryList.add(getEmployeesList().get(i));
-        }
-        return monthLowestSalaryList;
+        count = checkCountRequest(count);
+        getSortEmployeesList();
+        return new ArrayList<>(employeesList.subList(0, count));
     }
 //====================================================================================================================
     public void newEmployee () {
@@ -138,18 +101,31 @@ public class Company {
         employeesList.remove(employee);
     }
 
-    public boolean isOverIncome() {
-        return getOverIncome() >= OVER_INCOME;
+    public int getOVER_INCOME() {
+        return OVER_INCOME;
     }
 
-    private int getOverIncome () {
+    public int getIncome () {
         int companyIncome = 0;
-        for (EmployeeType employee : getEmployeesList()) {
+        for (EmployeeType employee : employeesList) {
             if (employee instanceof SalesManager) {
                 companyIncome += ((SalesManager) employee).getSalesManagerDealSum();
             }
         }
         return companyIncome;
+    }
+
+    private int checkCountRequest (int count) {
+        if (count > employeesList.size()) {
+            System.out.println("Запрашиваемое кол-во для вывода превышает общее кол-во сотрудников. Будут выведены все сотрудники.");
+            count = employeesList.size();
+        }
+        return count;
+    }
+
+    private void getSortEmployeesList () {
+        Company company = this;
+        employeesList.sort(Comparator.comparingInt(o -> o.getMonthSalary(company)));
     }
 //====================================================================================================================
 }

@@ -10,7 +10,7 @@ public class TopManager extends EmployeeType
 
     @Override
     public int getMonthSalary(Company company) {
-        return company.isOverIncome() ? baseSalary * 2 : baseSalary;
+        return company.getIncome() >= company.getOVER_INCOME() ? baseSalary * 2 : baseSalary;
     }
 
     @Override
