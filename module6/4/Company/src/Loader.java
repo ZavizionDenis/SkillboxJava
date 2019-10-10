@@ -3,6 +3,7 @@ import EmployeeType.*;
 import Help.Help;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -59,7 +60,7 @@ public class Loader
         }
     }
 //=====================================================================================================================
-    private static void printRequestMonthSalary (ArrayList <EmployeeType> arrayList, Company company) {
+    private static void printRequestMonthSalary (List<EmployeeType> arrayList, Company company) {
         for (EmployeeType monthSalary : arrayList) {
             System.out.println(monthSalary.getMonthSalary(company));
         }

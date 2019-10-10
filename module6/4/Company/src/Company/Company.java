@@ -36,21 +36,18 @@ public class Company {
         System.out.println("Базовая зарплата менеджера по продажам: " + salesManagerBaseSalary);
         System.out.println("Базовая зарплата топ менеджера: " + topManagerBaseSalary);
 
-        for (int i = 1; i <= EMPLOYEE_COUNT; i++) {
-
-            if (i <= TOP_MANAGER_COUNT) {
-                hireEmployee(new TopManager(topManagerBaseSalary));
-            }
-
-            if (i > TOP_MANAGER_COUNT && i <= SALES_MANAGER_COUNT + TOP_MANAGER_COUNT) {
-                hireEmployee(new SalesManager(salesManagerBaseSalary));
-
-            }
-
-            if (i > SALES_MANAGER_COUNT + TOP_MANAGER_COUNT) {
-                hireEmployee(new Operator(operatorBaseSalary));
-            }
+        for (int i = 1; i <= TOP_MANAGER_COUNT; i++) {
+            hireEmployee(new TopManager(topManagerBaseSalary));
         }
+
+        for (int i = 1; i <= SALES_MANAGER_COUNT; i++) {
+            hireEmployee(new SalesManager(salesManagerBaseSalary));
+        }
+
+        for (int i = 1; i <= OPERATOR_COUNT; i++) {
+            hireEmployee(new Operator(operatorBaseSalary));
+        }
+
         if (getIncome() >= OVER_INCOME) {
             System.out.printf("Доход компании: %,d превысил границу сверх дохода: %,d, выдаем топ менеджерам премию на яхты/машины/прочее\n\n", getIncome(), OVER_INCOME);
         }
@@ -59,17 +56,16 @@ public class Company {
         }
     }
 //====================================================================================================================
-    public ArrayList <EmployeeType> getTopSalaryStaff(int count) {
+    public List <EmployeeType> getTopSalaryStaff(int count) {
         count = checkCountRequest(count);
         getSortEmployeesList();
-        Collections.reverse(employeesList);
-        return new ArrayList<>(employeesList.subList(0, count));
+        return employeesList.subList(employeesList.size() - count, employeesList.size());
     }
 //====================================================================================================================
-    public ArrayList <EmployeeType> getLowestSalaryStaff(int count) {
+    public List <EmployeeType> getLowestSalaryStaff(int count) {
         count = checkCountRequest(count);
         getSortEmployeesList();
-        return new ArrayList<>(employeesList.subList(0, count));
+        return employeesList.subList(0, count);
     }
 //====================================================================================================================
     public void newEmployee () {

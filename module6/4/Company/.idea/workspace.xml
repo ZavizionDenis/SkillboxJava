@@ -4,10 +4,9 @@
     <list default="true" id="3410231f-0a28-4afc-abaa-d66123af2a7c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Company/Company/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/Company/Company.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Company/EmployeeType/TopManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/EmployeeType/TopManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Company/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Company/Loader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Company/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Company/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmployeeType/TopManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeType/TopManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module7/1/LambdaExpressions/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module7/1/LambdaExpressions/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
