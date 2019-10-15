@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3410231f-0a28-4afc-abaa-d66123af2a7c" name="Default Changelist" comment="" />
+    <list default="true" id="ba6fd98a-b233-4ffb-9276-6a6963e4ecfe" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,27 +11,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
-  </component>
-  <component name="ProjectId" id="1REBiKU0L9OpUgK98HlpUEDTj1T" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1SFVK8HpqROJX5qQBZmK5JCc7wF" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="copyright" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="EmployeeType" />
-    </key>
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -48,7 +36,7 @@
   <component name="RunManager">
     <configuration name="Loader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Loader" />
-      <module name="Company" />
+      <module name="Airport" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -64,25 +52,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3410231f-0a28-4afc-abaa-d66123af2a7c" name="Default Changelist" comment="" />
-      <created>1569222500479</created>
+      <changelist id="ba6fd98a-b233-4ffb-9276-6a6963e4ecfe" name="Default Changelist" comment="" />
+      <created>1571159263050</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1569222500479</updated>
+      <updated>1571159263050</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
