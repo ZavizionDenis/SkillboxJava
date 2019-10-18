@@ -19,7 +19,7 @@ public class Loader
         final long TWO_HOURS = 2 * 3600 * 1000;
         Date currentTime = new Date();
         Date finishDepartureTime = new Date(System.currentTimeMillis() + TWO_HOURS);
-        return flight.getDate().after(currentTime) & flight.getDate().before(finishDepartureTime);
+        return flight.getDate().after(currentTime) && flight.getDate().before(finishDepartureTime);
 
     }
 
