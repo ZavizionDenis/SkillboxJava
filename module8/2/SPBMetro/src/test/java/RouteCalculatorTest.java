@@ -8,10 +8,6 @@ import java.util.stream.Stream;
 
 public class RouteCalculatorTest extends TestCase
 {
-    List<Station> route1;
-    List<Station> route2;
-    List<Station> route3;
-
     StationIndex stationIndex;
     RouteCalculator calculator;
 
@@ -19,7 +15,6 @@ public class RouteCalculatorTest extends TestCase
     protected void setUp() throws Exception {
 
         stationIndex = new StationIndex();
-        Line [] lines = new Line [3];
         Line green = new Line(1, "Зеленая");
         Line purple = new Line(2, "Фиолетовая");
         Line blue = new Line(3, "Синяя");
@@ -36,11 +31,8 @@ public class RouteCalculatorTest extends TestCase
                 .map(s -> new Station(s, blue))
                 .forEach(blue::addStation);
 
-        lines[0] = green;
-        lines[1] = purple;
-        lines[2] = blue;
-
-        Arrays.stream(lines)
+        List<Line> lines = Arrays.asList(green, purple, blue);
+        lines.stream()
                 .peek(stationIndex::addLine)
                 .map(Line::getStations)
                 .flatMap(Collection::stream)
@@ -60,138 +52,165 @@ public class RouteCalculatorTest extends TestCase
         }
 
         calculator = new RouteCalculator(stationIndex);
-
-//==================================  for testCalculateDuration =======================================================
-        route1 = Stream.of(new Station("Черная речка", blue),
-                new Station("Петроградская", blue),
-                new Station("Горьковская", blue),
-                new Station("Невский проспект", blue),
-                new Station("Сенная площадь", blue)).collect(Collectors.toList());
-
-        route2 = Stream.of(new Station("Приморская", green),
-                new Station("Василеостровская", green),
-                new Station("Гостиный двор", green),
-                new Station("Невский проспект", blue),
-                new Station("Горьковская", blue)).collect(Collectors.toList());
-
-        route3 = Stream.of(new Station("Чкаловская", purple),
-                new Station("Спортивная", purple),
-                new Station("Адмиралтейская", purple),
-                new Station("Садовая", purple),
-                new Station("Сенная площадь", blue),
-                new Station("Невский проспект", blue),
-                new Station("Гостиный двор", green),
-                new Station("Василеостровская", green)).collect(Collectors.toList());
-//---------------------------------------------------------------------------------------------------------------------
-
+    }
+//=====================================================================================================================
+    public void testGetEmptyStation () {
+         Station actual = stationIndex.getStation("Ижевская");
+         assertNull(actual);
     }
 //---------------------------------------------------------------------------------------------------------------------
-    public void testGetShortestRoute () {
-        String [] from = {"Черная речка", "Приморская", "Чкаловская"};
-        String [] to = {"Сенная площадь", "Горьковская", "Василеостровская"};
-        List <String []> routes = new ArrayList<>();
-        routes.add(0, new String[]{"Черная речка", "Петроградская", "Горьковская", "Невский проспект", "Сенная площадь"});
-        routes.add(1, new String[]{"Приморская", "Василеостровская", "Гостиный двор", "Невский проспект", "Горьковская"});
-        routes.add(2, new String[]{"Чкаловская", "Спортивная", "Адмиралтейская", "Садовая", "Сенная площадь", "Невский проспект", "Гостиный двор", "Василеостровская"});
-        for (int i = 0; i < from.length; i++) {
-            List<String> actual = calculator.getShortestRoute(stationIndex.getStation(from[i]), stationIndex.getStation(to[i]))
-                    .stream().map(Station::getName).collect(Collectors.toList());
-            List <String> expected = Arrays.stream(routes.get(i)).collect(Collectors.toList());
-            System.out.printf("Test name: %s -> Expected: %s\n Actual: %s\n", getName(), expected, actual);
-            assertEquals(expected, actual);
-        }
+    private List <Station> getActualForRoutTests (String fromStation, String toStation) {
+        return calculator.getShortestRoute(stationIndex.getStation(fromStation), stationIndex.getStation(toStation));
     }
 
-    public void testCalculateDuration () {
-        List [] routes = {route1, route2, route3};
-        double [] expecteds = {10.0, 11.0, 19.5};
-        for (int i = 0; i < routes.length; i++) {
-            double actual = RouteCalculator.calculateDuration(routes[i]);
-            System.out.printf("Test name: %s -> Expected: %.1f, Actual: %.1f\n", getName(), expecteds[i], actual);
-            assertEquals(expecteds[i], actual);
-        }
+    public void testGetShortestRouteSameLine () {
+        List<Station> actual = getActualForRoutTests("Черная речка", "Сенная площадь");
+        List<Station> expected = Stream.of("Черная речка", "Петроградская", "Горьковская", "Невский проспект", "Сенная площадь")
+                .map(s -> stationIndex.getStation(s)).collect(Collectors.toList());
+        assertEquals(expected, actual);
+    }
+
+    public void testGetShortestRouteOneCross () {
+        List<Station> actual = getActualForRoutTests("Приморская", "Горьковская");
+        List<Station> expected = Stream.of("Приморская", "Василеостровская", "Гостиный двор", "Невский проспект", "Горьковская")
+                .map(s -> stationIndex.getStation(s)).collect(Collectors.toList());
+        assertEquals(expected, actual);
+    }
+
+    public void testGetShortestRouteTwoCross () {
+        List<Station> actual = getActualForRoutTests("Чкаловская","Василеостровская");
+        List<Station> expected = Stream.of("Чкаловская", "Спортивная", "Адмиралтейская", "Садовая", "Сенная площадь", "Невский проспект", "Гостиный двор", "Василеостровская")
+                .map(s -> stationIndex.getStation(s)).collect(Collectors.toList());
+        assertEquals(expected, actual);
+    }
+//---------------------------------------------------------------------------------------------------------------------
+    public void testCalculateDurationSameLine () {
+        List <Station> route = Stream.of("Черная речка", "Петроградская", "Горьковская", "Невский проспект", "Сенная площадь")
+                .map(s -> stationIndex.getStation(s)).collect(Collectors.toList());
+        double actual = RouteCalculator.calculateDuration(route);
+        assertEquals(10.0, actual);
+    }
+
+    public void testCalculateDurationOneCross () {
+        List <Station> route = Stream.of("Приморская", "Василеостровская", "Гостиный двор", "Невский проспект", "Горьковская")
+                .map(s -> stationIndex.getStation(s)).collect(Collectors.toList());
+        double actual = RouteCalculator.calculateDuration(route);
+        assertEquals(11.0, actual);
+    }
+
+    public void testCalculateDurationTwoCross () {
+        List <Station> route = Stream.of("Чкаловская", "Спортивная", "Адмиралтейская", "Садовая", "Сенная площадь", "Невский проспект", "Гостиный двор", "Василеостровская")
+                .map(s -> stationIndex.getStation(s)).collect(Collectors.toList());
+        double actual = RouteCalculator.calculateDuration(route);
+        assertEquals(19.5, actual);
+    }
+//---------------------------------------------------------------------------------------------------------------------
+    private List <Station> getActualForRouteOnTheLineTests (String fromStation, String toStation) {
+        return calculator.getGetRouteOnTheLine(stationIndex.getStation(fromStation), stationIndex.getStation(toStation));
     }
 
     public void testGetRouteOnTheLine () {
-        List<String> actual1 = calculator.getGetRouteOnTheLine(stationIndex.getStation("Черная речка"), stationIndex.getStation("Сенная площадь"))
-                .stream().map(Station::getName).collect(Collectors.toList());
-        List <String> expected1 = Stream.of("Черная речка", "Петроградская", "Горьковская", "Невский проспект", "Сенная площадь").collect(Collectors.toList());
-        System.out.printf("Test name: %s -> Expected: %s\n Actual: %s\n", getName(), expected1, actual1);
-        assertEquals(expected1, actual1);
+        List<Station> actual = getActualForRouteOnTheLineTests("Черная речка", "Сенная площадь");
+        List<Station> expected = Stream.of("Черная речка", "Петроградская", "Горьковская", "Невский проспект", "Сенная площадь")
+                .map(s -> stationIndex.getStation(s)).collect(Collectors.toList());
+        assertEquals(expected, actual);
+    }
+    public void testGetRouteOnTheLineOneCross () {
+        List<Station> actual = getActualForRouteOnTheLineTests("Приморская", "Горьковская");
+        assertNull(actual);
+    }
 
-        String [] stationFrom = {"Приморская", "Чкаловская"};
-        String [] stationTo = {"Горьковская", "Василеостровская"};
-        for (int i = 0; i< stationFrom.length; i++) {
-            List<Station> actual2 = calculator.getGetRouteOnTheLine(stationIndex.getStation(stationFrom[i]), stationIndex.getStation(stationTo[i]));
-            System.out.printf("Test name: %s -> Expected: %s\n Actual: %s\n", getName(), null, actual2);
-            assertNull(actual2);
-        }
+    public void testGetRouteOnTheLineTwoCross () {
+        List<Station> actual = getActualForRouteOnTheLineTests("Чкаловская", "Василеостровская");
+        assertNull(actual);
+    }
+//---------------------------------------------------------------------------------------------------------------------
+    private List <Station> getActualForOneConnectionTests (String fromStation, String toStation) {
+        return calculator.getGetRouteWithOneConnection(stationIndex.getStation(fromStation), stationIndex.getStation(toStation));
     }
 
     public void testGetRouteWithOneConnection () {
-        List<String> actual1 = calculator.getGetRouteWithOneConnection(stationIndex.getStation("Приморская"), stationIndex.getStation("Горьковская"))
-                .stream().map(Station::getName).collect(Collectors.toList());
-        List <String> expected1 = Stream.of("Приморская", "Василеостровская", "Гостиный двор", "Невский проспект", "Горьковская").collect(Collectors.toList());
-        System.out.printf("Test name: %s -> Expected: %s\n Actual: %s\n", getName(), expected1, actual1);
-        assertEquals(expected1, actual1);
+        List<Station> actual = getActualForOneConnectionTests("Приморская", "Горьковская");
+        List<Station> expected = Stream.of("Приморская", "Василеостровская", "Гостиный двор", "Невский проспект", "Горьковская")
+                .map(s -> stationIndex.getStation(s)).collect(Collectors.toList());
+        assertEquals(expected, actual);
+    }
 
-        List<Station> actual2 = calculator.getGetRouteWithOneConnection(stationIndex.getStation("Черная речка"), stationIndex.getStation("Сенная площадь"));
-        System.out.printf("Test name: %s -> Expected: %s\n Actual: %s\n", getName(), null, actual2);
-        assertNull(actual2);
+    public void testGetRouteWithOneConnectionSameLine () {
+            List<Station> actual = getActualForOneConnectionTests("Черная речка", "Сенная площадь");
+            assertNull(actual);
+    }
 
-        List<Station> actual3 = calculator.getGetRouteWithOneConnection(stationIndex.getStation("Чкаловская"), stationIndex.getStation("Василеостровская"));
-        System.out.printf("Test name: %s -> Expected: %d\n Actual: %d\n", getName(), 0, actual3.size());
-        assertEquals(0,actual3.size());
+    public void testGetRouteWithOneConnectionTwoCross () {
+        List<Station> actual = getActualForOneConnectionTests("Чкаловская", "Василеостровская");
+        assertEquals(0, actual.size());
+    }
+//---------------------------------------------------------------------------------------------------------------------
+    private List <Station> getActualForTwoConnectionTests (String fromStation, String toStation) {
+        return calculator.getGetRouteWithTwoConnections(stationIndex.getStation(fromStation), stationIndex.getStation(toStation));
     }
 
     public void testGetRouteWithTwoConnections () {
-        List<String> actual1 = calculator.getGetRouteWithTwoConnections(stationIndex.getStation("Чкаловская"), stationIndex.getStation("Василеостровская"))
-                .stream().map(Station::getName).collect(Collectors.toList());
-        List <String> expected1 = Stream.of("Чкаловская", "Спортивная", "Адмиралтейская", "Садовая", "Сенная площадь", "Невский проспект", "Гостиный двор", "Василеостровская").collect(Collectors.toList());
-        System.out.printf("Test name: %s -> Expected: %s\n Actual: %s\n", getName(), expected1, actual1);
-        assertEquals(expected1, actual1);
-
-        List<Station> actual2 = calculator.getGetRouteWithTwoConnections(stationIndex.getStation("Черная речка"), stationIndex.getStation("Сенная площадь"));
-        System.out.printf("Test name: %s -> Expected: %s\n Actual: %s\n", getName(), null, actual2);
-        assertNull(actual2);
-
-        List<Station> actual3 = calculator.getGetRouteWithTwoConnections(stationIndex.getStation("Приморская"), stationIndex.getStation("Горьковская"));
-        System.out.printf("Test name: %s -> Expected: %d\n Actual: %d\n", getName(), 0, actual3.size());
-        assertEquals(0,actual3.size());
+        List<Station> actual = getActualForTwoConnectionTests("Чкаловская", "Василеостровская");
+        List <Station> expected = Stream.of("Чкаловская", "Спортивная", "Адмиралтейская", "Садовая", "Сенная площадь", "Невский проспект", "Гостиный двор", "Василеостровская")
+                .map(s -> stationIndex.getStation(s)).collect(Collectors.toList());
+        assertEquals(expected, actual);
     }
 
-    public void testIsConnected () {
-        String [] stationFrom = {"Невский проспект", "Сенная площадь", "Приморская", "Невский проспект"};
-        String [] stationTo = {"Гостиный двор", "Садовая", "Горьковская", "Приморская"};
-        for (int i = 0; i< stationFrom.length; i++) {
-            Boolean actual = calculator.getIsConnected(stationIndex.getStation(stationFrom[i]), stationIndex.getStation(stationTo[i]));
-            if (i < 2) {
-                System.out.printf("Test name: %s -> Expected: %b, Actual: %b\n", getName(), true, actual);
-                assertTrue(actual);
-            }
-            else {
-                System.out.printf("Test name: %s -> Expected: %b, Actual: %b\n", getName(), false, actual);
-                assertFalse(actual);
-            }
-        }
+    public void testGetRouteWithTwoConnectionsSameLine () {
+        List<Station> actual = getActualForTwoConnectionTests("Черная речка", "Сенная площадь");
+        assertNull(actual);
+    }
+
+    public void testGetRouteWithTwoConnectionsOneCross () {
+        List<Station> actual = getActualForTwoConnectionTests("Приморская", "Горьковская");
+        assertEquals(0, actual.size());
+    }
+//---------------------------------------------------------------------------------------------------------------------
+    private boolean getActualForTestIsConnected (String fromStation, String toStation) {
+        return calculator.getIsConnected(stationIndex.getStation(fromStation), stationIndex.getStation(toStation));
+    }
+
+    public void testIsConnectedOne () {
+        Boolean actual = getActualForTestIsConnected("Невский проспект", "Гостиный двор");
+        assertTrue(actual);
+    }
+
+    public void testIsConnectedTwo () {
+        Boolean actual = getActualForTestIsConnected("Сенная площадь", "Садовая");
+        assertTrue(actual);
+    }
+
+    public void testNotConnectedOne () {
+        Boolean actual = getActualForTestIsConnected("Приморская", "Горьковская");
+        assertFalse(actual);
+    }
+
+    public void testNotConnectedTwo () {
+        Boolean actual = getActualForTestIsConnected("Невский проспект", "Приморская");
+        assertFalse(actual);
+    }
+//---------------------------------------------------------------------------------------------------------------------
+    private List <Station> getActualForRouteViaConnectedTests (String fromStation, String toStation) {
+        return calculator.getGetRouteViaConnectedLine(stationIndex.getStation(fromStation), stationIndex.getStation(toStation));
     }
 
     public void testGetRouteViaConnectedLine () {
-        List<String> actual1 = calculator.getGetRouteViaConnectedLine(stationIndex.getStation("Гостиный двор"), stationIndex.getStation("Садовая"))
-                .stream().map(Station::getName).collect(Collectors.toList());
-        List <String> expected1 = Stream.of("Невский проспект", "Сенная площадь").collect(Collectors.toList());
-        System.out.printf("Test name: %s -> Expected: %s\n Actual: %s\n", getName(), expected1, actual1);
-        assertEquals(expected1, actual1);
-
-        String [] stationFrom = {"Невский проспект", "Приморская"};
-        String [] stationTo = {"Сенная площадь", "Чкаловская"};
-        for (int i = 0; i < stationFrom.length; i++) {
-            List<Station> actual = calculator.getGetRouteViaConnectedLine(stationIndex.getStation(stationFrom[i]), stationIndex.getStation(stationTo[i]));
-            System.out.printf("Test name: %s -> Expected: %s Actual: %s\n", getName(), null, actual);
-            assertNull(actual);
-        }
+        List<Station> actual = getActualForRouteViaConnectedTests("Гостиный двор", "Садовая");
+        List <Station> expected = Stream.of("Невский проспект", "Сенная площадь").map(s -> stationIndex.getStation(s)).collect(Collectors.toList());
+        assertEquals(expected, actual);
     }
 
+    public void testGetRouteNotConnectedLine () {
+        List<Station> actual = getActualForRouteViaConnectedTests("Приморская", "Чкаловская");
+        assertNull(actual);
+    }
+
+    public void testGetRouteConnectedOnSameLine () {
+        List<Station> actual = getActualForRouteViaConnectedTests("Невский проспект", "Сенная площадь");
+        assertNull(actual);
+    }
+//---------------------------------------------------------------------------------------------------------------------
     @Override
     protected void tearDown() throws Exception {
     }
