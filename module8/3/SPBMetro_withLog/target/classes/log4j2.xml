@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <File name="EmptyStation" fileName="logs/EmptyStation.log" immediateFlush="true">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS}: method - [%M], %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="RequestStation" fileName="logs/RequestStation.log" immediateFlush="true">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS}: %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="ErrorLog" fileName="logs/ErrorLog.log" immediateFlush="true">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS}: tread - [%t], method - [%M], %-5level %logger{36} - %msg%n"/>
+        </File>
+
+    </appenders>
+    <loggers>
+        <Logger name="RequestStation" level="info" additivity="false">
+            <AppenderRef ref="RequestStation"/>
+        </Logger>
+
+        <Logger name="EmptyStation" level="info" additivity="false">
+            <AppenderRef ref="EmptyStation"/>
+        </Logger>
+
+        <Logger name="ErrorLog" level="debug" additivity="false">
+            <AppenderRef ref="ErrorLog"/>
+        </Logger>
+
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </loggers>
+</configuration>
