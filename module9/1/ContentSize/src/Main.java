@@ -1,37 +1,28 @@
-import java.io.File;
-import java.util.Arrays;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Main
 {
-    private static long size;
     public static void main(String[] args) {
         System.out.println("ввведите путь к папке:");
         String srcPath = new Scanner(System.in).nextLine();
-        File scanFolder = new File(srcPath);
-        if (!scanFolder.exists()) {
-            System.out.println("Указанная папка не найдена.");
-            System.exit(1);
-        }
-        else if (scanFolder.isFile()) {
-            System.out.println("Введеный путь указывает на файл.");
-            System.exit(2);
+        Path scanFolder = Paths.get(srcPath);
+
+        if (Files.isDirectory(scanFolder) && scanFolder.getFileName() != null) {
+            MyFileVisitor fileVisitor = new MyFileVisitor();
+            try {
+                Files.walkFileTree(scanFolder, fileVisitor);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println(getFormatSize(fileVisitor.getSize()));
         }
         else {
-            contentSize(scanFolder);
+            System.out.println("Не корректный путь к папке.");
         }
-        System.out.print(getFormatSize(size));
-    }
-
-    private static void contentSize (File nextFolder) {
-        File [] contentList = nextFolder.listFiles();
-        Arrays.stream(contentList).forEach(file -> {
-            if (file.isFile()) {
-                size += file.length();
-            } else {
-                contentSize(file);
-            }
-        });
     }
 
     private static String getFormatSize(Long size) {
