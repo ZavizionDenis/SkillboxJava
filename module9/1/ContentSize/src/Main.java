@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.nio.file.AccessDeniedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,7 +12,7 @@ public class Main
         String srcPath = new Scanner(System.in).nextLine();
         Path scanFolder = Paths.get(srcPath);
 
-        if (Files.isDirectory(scanFolder) && scanFolder.getFileName() != null) {
+        if (Files.isDirectory(scanFolder)) {
             MyFileVisitor fileVisitor = new MyFileVisitor();
             try {
                 Files.walkFileTree(scanFolder, fileVisitor);

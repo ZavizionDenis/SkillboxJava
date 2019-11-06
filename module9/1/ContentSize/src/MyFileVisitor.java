@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
@@ -12,6 +13,10 @@ public class MyFileVisitor extends SimpleFileVisitor <Path>
         return FileVisitResult.CONTINUE;
     }
 
+    public FileVisitResult visitFileFailed(Path path, IOException e) throws IOException {
+        System.out.println("Ошибка доступа к " + path);
+        return FileVisitResult.SKIP_SUBTREE;
+    }
     public long getSize() {
         return size;
     }
