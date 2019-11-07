@@ -14,7 +14,7 @@ public class MyFileVisitor extends SimpleFileVisitor <Path>
     }
 
     public FileVisitResult visitFileFailed(Path path, IOException e) throws IOException {
-        System.out.println("Ошибка доступа к " + path);
+        System.out.println("Ошибка доступа к " + path + " Причина: " + e.getMessage());
         return FileVisitResult.SKIP_SUBTREE;
     }
     public long getSize() {
