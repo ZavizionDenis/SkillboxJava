@@ -28,7 +28,7 @@ public class Loader {
             System.exit(1);
         }
 
-        Path newDestFolder = Paths.get(destFolder.toString() + "/" + srcFolder.getFileName());
+        Path newDestFolder = Paths.get(destFolder.toString(), srcFolder.getFileName().toString());
 
         try {
             Files.walkFileTree(srcFolder, new MyFileVisitor(srcFolder, newDestFolder));
