@@ -12,30 +12,37 @@ public class MyFileVisitor extends SimpleFileVisitor <Path>
         this.destPath = destPath;
     }
 
+    @Override
     public FileVisitResult visitFile(Path path, BasicFileAttributes fileAttributes) {
         Path newdestPath = destPath.resolve(srcPath.relativize(path));
         try {
             Files.copy(path, newdestPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
-            visitFileFailed(path, e);
+            return showMessageAndSkip(path, e);
         }
         return FileVisitResult.CONTINUE;
     }
 
+    @Override
     public FileVisitResult preVisitDirectory(Path path, BasicFileAttributes fileAttributes) {
         Path newdestPath = destPath.resolve(srcPath.relativize(path));
         if (!Files.exists(newdestPath)) {
             try {
                 Files.copy(path, newdestPath, StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
-                visitFileFailed(path, e);
+                return showMessageAndSkip(path, e);
             }
         }
         return FileVisitResult.CONTINUE;
     }
 
+    @Override
     public FileVisitResult visitFileFailed(Path path, IOException e) {
-        System.out.println("Не удалось скопировать: " + path);
+        return showMessageAndSkip(path, e);
+    }
+
+    private FileVisitResult showMessageAndSkip(Path path, Exception e) {
+        System.out.println("Не удалось скопировать: " + path + " " + e.toString());
         return FileVisitResult.SKIP_SUBTREE;
     }
 }
