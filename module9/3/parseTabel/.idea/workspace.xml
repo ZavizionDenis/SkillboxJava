@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7aa11287-c53f-49ad-bf5a-acfc38e2d917" name="Default Changelist" comment="" />
+    <list default="true" id="7aa11287-c53f-49ad-bf5a-acfc38e2d917" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Summary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2/FolderCopy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../2/FolderCopy/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parseTabel/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parseTabel/Loader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parseTabel/MCCCodeBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parseTabel/MCCCodeBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parseTabel/Trasaction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MCCCodeBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MCCCodeBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Trasaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Transaction.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +27,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
   <component name="ProjectId" id="1THmQr5U740U93HDgQte9MEXENb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -63,5 +80,18 @@
       <updated>1573125381586</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
