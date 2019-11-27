@@ -1,4 +1,5 @@
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
@@ -12,6 +13,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Loader {
     private static final String IMAGE_VALID = ".+\\.(?i)(png|jpg|gif|ico)$";
@@ -26,6 +29,7 @@ public class Loader {
                 Files.createDirectory(outputPath);
             } catch (IOException e) {
                 e.printStackTrace();
+                System.exit(1);
             }
         }
 
@@ -33,17 +37,18 @@ public class Loader {
         downloadFiles(getUrlsList(), outputPath);
     }
 
-    private static HashSet<String> getUrlsList () {
-        HashSet<String> urls = new HashSet<>();
+    private static Set<String> getUrlsList () {
+        Set<String> urls = new HashSet<>();
         try {
-            Document doc = Jsoup.parse(new URL(address), 10000);
+            Document doc = Jsoup.connect(address).maxBodySize(0).get();
 
-            Arrays.stream(tags).forEach(tag -> {
-                Elements elements = doc.select(tag);
-                elements.forEach(element -> Arrays.stream(attributes)
-                        .filter(attribute -> !element.attr(attribute).isEmpty() && element.attr(attribute).matches(IMAGE_VALID))
-                        .forEach(attribute -> urls.add(element.attr(attribute))));
-            });
+           urls = Arrays.stream(tags)
+                    .flatMap(tag -> doc.select(tag).stream())
+                    .flatMap(element -> Arrays.stream(attributes)
+                            .map(element::attr))
+                    .filter(url -> !url.isEmpty())
+                    .filter(url -> url.matches(IMAGE_VALID))
+                    .collect(Collectors.toSet());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -51,15 +56,12 @@ public class Loader {
         return urls;
     }
 
-    private static void downloadFiles (HashSet<String> urls, Path outputPath) {
+    private static void downloadFiles (Set<String> urls, Path outputPath) {
         for (String url : urls) {
             Path fileName = Paths.get(url).getFileName();
-            try {
-                ReadableByteChannel inputByteStream = Channels.newChannel(new URL(url).openStream());
-                FileOutputStream fileOutStream = new FileOutputStream(outputPath.toString() + "/" + fileName.toString());
+            try (ReadableByteChannel inputByteStream = Channels.newChannel(new URL(url).openStream());
+                 FileOutputStream fileOutStream = new FileOutputStream(outputPath.toString() + "/" + fileName.toString())) {
                 fileOutStream.getChannel().transferFrom(inputByteStream, 0, Long.MAX_VALUE);
-                fileOutStream.close();
-                inputByteStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
