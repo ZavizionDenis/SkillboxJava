@@ -18,12 +18,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import static java.lang.String.*;
 
 public class Main {
     private static final String SRC_URL = "https://ru.wikipedia.org/wiki/Список_станций_Московского_метрополитена";
@@ -63,14 +61,14 @@ public class Main {
         ArrayList <Station> stations = new ArrayList<>();
         trTags.stream().skip(1).forEach(trTag -> {
             Element tdTagLineOfStation = trTag.select("td").get(0);
-            int linesInRowCount = tdTagLineOfStation.select("span").size() > 3 ? 2 : 1;
+            int linesInRowCount = tdTagLineOfStation.select("span[title]").size();
             for (int i = 0; i < linesInRowCount; i++) {
                 Line line = parseLine(tdTagLineOfStation, i);
                 String name;
                 if (trTag.select("td").get(1).select("span").isEmpty()) {
-                    name = trTag.select("td").get(1).select("a").html();
+                    name = trTag.select("td a").get(1).text();
                 } else {
-                    name = trTag.select("td").get(1).select("span").select("a").html();
+                    name = trTag.select("td").get(1).select("span a").text();
                 }
                 Element tdTagConnection = trTag.select("td").get(3);
                 ArrayList<String> connectionLinks = new ArrayList<>();
@@ -83,10 +81,12 @@ public class Main {
         return stations;
     }
 
-    private static Line parseLine (Element tdTag, int iteration) {
+    private static Line parseLine (Element tdTag, int stationIndexInRow) {
         int numberSpanTag = 0;
-        Matcher matcher = Pattern.compile("#[\\dA-Z]{6}").matcher(tdTag.attr("style"));
-        if (iteration != 0) {
+        Matcher matcher;
+        if (stationIndexInRow == 0) {
+            matcher = Pattern.compile("#[\\dA-Z]{6}").matcher(tdTag.attr("style"));
+        } else {
             numberSpanTag = 2;
             matcher = Pattern.compile("to\\(#[\\dA-Z]{6}").matcher(tdTag.attr("style"));
         }
@@ -99,8 +99,8 @@ public class Main {
 
         Elements spanTags = tdTag.select("span");
         String number = "";
-        if (spanTags.get(numberSpanTag).html().matches("^\\d+[a-zA-Zа-яА-Я]?$")) {
-                number = spanTags.get(numberSpanTag).html();
+        if (spanTags.get(numberSpanTag).text().matches("^\\d+[a-zA-Zа-яА-Я]?$")) {
+                number = spanTags.get(numberSpanTag).text();
         }
 
         String name = "";
@@ -115,15 +115,15 @@ public class Main {
         Elements spanTags = tdTagConnection.select("span");
         for (int i = 0; i < spanTags.size(); i += 2) {
             String number = "";
-            if (spanTags.get(i).html().matches("^\\d+[a-zA-Zа-яА-Я]?$")) {
-                number = spanTags.get(i).html();
+            if (spanTags.get(i).text().matches("^\\d+[a-zA-Zа-яА-Я]?$")) {
+                number = spanTags.get(i).text();
             }
             String name = "";
             if (spanTags.get(i + 1).attr("title").matches("\\D+")) {
                 String connectionURL = spanTags.get(i + 1).select("a").attr("href");
                 try {
                     Document document = Jsoup.connect("https://ru.wikipedia.org" + connectionURL).maxBodySize(0).get();
-                    name = document.select("h1").html().replaceAll("\\(.+\\)","").trim();
+                    name = document.select("h1").text().replaceAll("\\(.+\\)","").trim();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
