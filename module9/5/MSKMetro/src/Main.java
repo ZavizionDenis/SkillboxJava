@@ -4,6 +4,8 @@ import MetroCore.MetroShema;
 import MetroCore.Station;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,11 +13,17 @@ import org.jsoup.select.Elements;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
+import static java.lang.String.*;
 
 public class Main {
     private static final String SRC_URL = "https://ru.wikipedia.org/wiki/Список_станций_Московского_метрополитена";
@@ -30,6 +38,10 @@ public class Main {
 
         addedLinesToMetroShema();
         exportToJason();
+
+        HashMap <String, Integer> stationsCountOnLine = getStationsCountOnLine();
+        stationsCountOnLine.keySet()
+                .forEach(lineNumber -> System.out.printf("Линия №: %s Кол-во станций: %d%n", lineNumber, stationsCountOnLine.get(lineNumber)));
     }
 
     private static Document getPageForParse () {
@@ -217,5 +229,34 @@ public class Main {
             }
         }
         return isadded;
+    }
+
+    private static HashMap<String, Integer> getStationsCountOnLine () {
+        JSONParser parser = new JSONParser();
+        JSONObject jsonData = new JSONObject();
+        try {
+            jsonData = (JSONObject) parser.parse(readJsonFile());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject stationsObject = (JSONObject) jsonData.get("Stations");
+        HashMap <String , Integer> map = (HashMap<String, Integer>) stationsObject.keySet().stream()
+                .collect(Collectors.toMap(lineNumber -> lineNumber, lineNumber -> {
+                    JSONArray stationsArray = (JSONArray) stationsObject.get(lineNumber);
+                    return stationsArray.size();
+                }));
+        return map;
+    }
+
+    private static String readJsonFile () {
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            List<String> lines = Files.readAllLines(Paths.get("res/MetroShema.json"));
+            lines.forEach(stringBuilder::append);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
     }
 }
